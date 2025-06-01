@@ -2,7 +2,6 @@
   "name": "fieldwire-playwright",
   "version": "1.0.0",
   "description": "take home exercise for fieldwire",
-  "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui-host=0.0.0.0",

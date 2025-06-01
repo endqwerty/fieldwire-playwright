@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/endqwerty/fieldwire-playwright#readme",
   "devDependencies": {
-    "@chromatic-com/playwright": "^0.12.4",
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.15.29",
     "chromatic": "^12.0.0"

@@ -1,0 +1,27 @@
+{
+  "name": "fieldwire-playwright",
+  "version": "1.0.0",
+  "description": "take home exercise for fieldwire",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui-host=0.0.0.0",
+    "test:chromatic": "npx chromatic --playwright"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endqwerty/fieldwire-playwright.git"
+  },
+  "author": "Daniel Yang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/endqwerty/fieldwire-playwright/issues"
+  },
+  "homepage": "https://github.com/endqwerty/fieldwire-playwright#readme",
+  "devDependencies": {
+    "@chromatic-com/playwright": "^0.12.4",
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.29",
+    "chromatic": "^12.0.0"
+  }
+}

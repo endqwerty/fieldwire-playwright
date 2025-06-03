@@ -34,7 +34,9 @@
 				"ms-playwright.playwright",
 				"esbenp.prettier-vscode",
 				"google.geminicodeassist",
-				"vivaxy.vscode-conventional-commits"
+				"vivaxy.vscode-conventional-commits",
+				"GitHub.vscode-pull-request-github",
+				"github.vscode-github-actions"
 			]
 		}
 	},

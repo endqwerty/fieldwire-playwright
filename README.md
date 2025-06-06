@@ -1,5 +1,7 @@
 # fieldwire-playwright
 
+[![Playwright Tests](https://github.com/endqwerty/fieldwire-playwright/actions/workflows/playwright.yml/badge.svg)](https://github.com/endqwerty/fieldwire-playwright/actions/workflows/playwright.yml)
+
 # Coding Exercise Instructions
 
 Automate some forms and task flows for the staging fieldwire web application

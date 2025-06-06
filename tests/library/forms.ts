@@ -15,6 +15,7 @@ export class Forms {
   readonly createFormTemplateModalSelectionDropdown: Locator;
   readonly createFormTemplateModalSelectionBlankTemplateOption: Locator;
   readonly createFormTemplateModalDateSwitch: Locator;
+  readonly createFormTemplateModalCreateButton: Locator;
 
   readonly popUpModal: Locator;
   readonly popUpModalConfirmButton: Locator;
@@ -54,8 +55,11 @@ export class Forms {
     this.createFormTemplateModalSelectionBlankTemplateOption = page.getByTestId(
       "create-form-template-modal-new-blank-template-button"
     );
-    this.createFormTemplateModalDateSwitch = page.getByTestId(
-      "create-form-template-modal-date-switch"
+    this.createFormTemplateModalDateSwitch = page
+      .getByTestId("create-form-template-modal-date-switch")
+      .getByRole("switch");
+    this.createFormTemplateModalCreateButton = page.getByTestId(
+      "create-form-template-modal-create-button"
     );
   }
   async expectOnFormsPage() {
@@ -68,7 +72,10 @@ export class Forms {
     }
   }
 
-  async createNewTemplate(dated: boolean, name: string) {
+  async createNewTemplate(
+    dated: boolean,
+    name: string
+  ): Promise<{ templateId: string; authToken: string }> {
     await this.newFormButton.click();
     await this.newFormDropdownNewTemplateDropdown.hover();
     await this.newFormDropdowCreateNewTemplateButton.click();
@@ -76,8 +83,39 @@ export class Forms {
     await this.createFormTemplateModalSelectionBlankTemplateOption.click();
     await this.createFormTemplateModalNameInput.fill(name);
     if (dated) {
-      //TODO: this isn't working yet
-      this.createFormTemplateModalDateSwitch.click();
+      await this.createFormTemplateModalDateSwitch.click();
     }
+    const requestPromise = this.page.waitForRequest(
+      (request) =>
+        request.url().match(/\/api\/v3\/projects\/[^/]+\/form_templates/)!! &&
+        request.method() === "POST"
+    );
+    await this.createFormTemplateModalCreateButton.click();
+
+    const resolvedRequest = await requestPromise;
+    const authToken = (await resolvedRequest.allHeaders()).authorization;
+    const response = await resolvedRequest.response();
+    const responseJson = await response?.json();
+
+    const templateId = await responseJson?.id;
+    expect(templateId).toBeDefined();
+
+    return { templateId, authToken };
+  }
+
+  // verifying the initial edit page after creating the template
+  async expectTemplateWithNameToBeCreated(name: string) {
+    const pageTitle = this.page.getByTitle(name);
+    // using count here as multiple locators match, this can be improved with test ids or clearer identifiers
+    expect(await pageTitle.count()).toBeGreaterThan(0);
+  }
+  // this could be refactored into a new class that is constructed with the name, then the name can be stored in the class
+  async expectTemplateWithNameToBeVisibleInTable(name: string) {
+    // convert name to locator
+    const templateLocator = this.page.getByTestId(
+      `forms-tab-${name}-template-name-cell`
+    );
+    await templateLocator.scrollIntoViewIfNeeded();
+    await expect(templateLocator).toBeVisible();
   }
 }

@@ -4,7 +4,7 @@
   "description": "take home exercise for fieldwire",
   "scripts": {
     "test": "npx playwright test",
-    "test:ui": "npx playwright test --ui-host=0.0.0.0"
+    "test:devcontainer": "npx playwright test --ui-host=0.0.0.0"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,9 @@
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.15.29"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "dotenv": "^16.5.0"
   }
 }

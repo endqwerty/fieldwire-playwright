@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
+import "dotenv/config";
 
-import { ChromaticConfig } from "@chromatic-com/playwright";
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -12,8 +12,7 @@ import { ChromaticConfig } from "@chromatic-com/playwright";
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig<ChromaticConfig>({
-
+export default defineConfig({
   testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -42,7 +41,6 @@ export default defineConfig<ChromaticConfig>({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
-    disableAutoSnapshot: true,
     testIdAttribute: "data-e2e",
   },
 

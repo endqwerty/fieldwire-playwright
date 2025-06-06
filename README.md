@@ -1,6 +1,6 @@
 # fieldwire-playwright
 
-# Coding Exercise
+# Coding Exercise Instructions
 
 Automate some forms and task flows for the staging fieldwire web application
 
@@ -10,9 +10,23 @@ Automate some forms and task flows for the staging fieldwire web application
 - test framework in javascript or typescript with any web autoamtion platform
 - Write 2-3 tests for each of the tasks and forms features
 
-# Documentation
+## Documentation
 
 - Test Plan and test selection
 - How to build/execute your tests
 - Any decisions or trade-offs made during the design process
 - Things you would have done differently
+
+# Instructions
+
+## Installing Dependencies
+
+`npm install`
+
+## Running Tests
+
+`npm run test`
+
+If you are using a Github codespace or docker devcontainer use
+
+`npm run test:devcontainer`

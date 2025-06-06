@@ -6,6 +6,9 @@ on:
     branches: [main]
 jobs:
   test:
+    concurrency:
+      group: test-group
+      cancel-in-progress: true
     timeout-minutes: 60
     runs-on: mcr.microsoft.com/playwright:v1.52.0-noble
     steps:

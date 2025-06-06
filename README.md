@@ -48,3 +48,5 @@ If you are using a Github codespace or docker devcontainer use
 Github action using the default Playwright script.
 
 Tests run in the docker image provided by Playwright
+
+Node in CI is pinned to 22.11.0

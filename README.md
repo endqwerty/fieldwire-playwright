@@ -17,7 +17,19 @@ Automate some forms and task flows for the staging fieldwire web application
 - Any decisions or trade-offs made during the design process
 - Things you would have done differently
 
+# Tools used
+
+NPM
+Playwright
+Prettier
+Github (and Github Actions)
+Google Gemini Code Assistant
+
 # Instructions
+
+## Requirements
+
+"node": ">= 18"
 
 ## Installing Dependencies
 

@@ -35,10 +35,16 @@ Google Gemini Code Assistant
 
 `npm install`
 
-## Running Tests
+## Run Tests
 
 `npm run test`
 
 If you are using a Github codespace or docker devcontainer use
 
 `npm run test:devcontainer`
+
+## CI/CD
+
+Github action using the default Playwright script.
+
+Tests run in the docker image provided by Playwright

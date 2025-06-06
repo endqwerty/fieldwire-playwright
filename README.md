@@ -37,6 +37,8 @@ Google Gemini Code Assistant
 
 `npm install`
 
+create a `.env` file with valid credentials. An example is located at `/.env.example`
+
 ## Run Tests
 
 `npm run test`

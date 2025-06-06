@@ -31,7 +31,7 @@ Google Gemini Code Assistant
 
 "node": ">= 18"
 
-## Installing Dependencies
+## Setup
 
 `npm install`
 

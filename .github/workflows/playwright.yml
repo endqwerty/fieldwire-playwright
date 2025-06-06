@@ -23,6 +23,10 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test
+        env:
+          FW_USERNAME: ${{ secrets.FW_USERNAME }}
+          FW_PASSWORD: ${{ secrets.FW_USERNAME }}
+
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

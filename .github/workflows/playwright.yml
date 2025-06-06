@@ -25,7 +25,7 @@ jobs:
         run: npx playwright test
         env:
           FW_USERNAME: ${{ secrets.FW_USERNAME }}
-          FW_PASSWORD: ${{ secrets.FW_USERNAME }}
+          FW_PASSWORD: ${{ secrets.FW_PASSWORD }}
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
